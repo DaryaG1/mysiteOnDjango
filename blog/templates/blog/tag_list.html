@@ -1,0 +1,18 @@
+{% extends 'blog/baseBlog.html'%}
+
+{%block title%}
+Tag List
+{%endblock%}
+
+{%block content%}
+<h1>Tag:</h1>
+{%for tag in tags%}
+<div class="card-body">
+    <h5 class="card-title">
+        <a href="{{tag.get_absolute_url}}">{{tag.slug}}</a>
+    <a href="{%url 'tag_delete_url' slug=tag.slug%}">X</a>
+    <a href="{%url 'tag_update_url' slug=tag.slug%}">Update</a>
+    </h5>
+  </div>
+{%endfor%}
+{%endblock%}
